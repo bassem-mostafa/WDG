@@ -59,72 +59,17 @@
 // #### Private Type(s) ########################################################
 // #############################################################################
 
-typedef struct WDG_Context
-{
-} WDG_Context_t;
-
 // #############################################################################
 // #### Private Method(s) Prototype ############################################
 // #############################################################################
-
-static WDG_Status_t WDG_Context_Initialize( void );
-static WDG_Status_t WDG_Context_Cycle( void );
-static WDG_Status_t WDG_Context_DeInitialize( void );
 
 // #############################################################################
 // #### Private Variable(s) ####################################################
 // #############################################################################
 
-static WDG_Context_t WDG_Context;
-
 // #############################################################################
 // #### Private Method(s) ######################################################
 // #############################################################################
-
-static WDG_Status_t WDG_Context_Initialize( void )
-{
-    WDG_Status_t Status = WDG_Status_Success;
-
-    do
-    {
-        WDG_Trace( "%s( void )", __FUNCTION__ );
-
-        UTIL_UNUSED( WDG_Context );
-    }
-    while ( 0 );
-
-    return Status;
-}
-
-static WDG_Status_t WDG_Context_Cycle( void )
-{
-    WDG_Status_t Status = WDG_Status_Success;
-
-    do
-    {
-        WDG_Trace( "%s( void )", __FUNCTION__ );
-
-        UTIL_UNUSED( WDG_Context );
-    }
-    while ( 0 );
-
-    return Status;
-}
-
-static WDG_Status_t WDG_Context_DeInitialize( void )
-{
-    WDG_Status_t Status = WDG_Status_Success;
-
-    do
-    {
-        WDG_Trace( "%s( void )", __FUNCTION__ );
-
-        UTIL_UNUSED( WDG_Context );
-    }
-    while ( 0 );
-
-    return Status;
-}
 
 // #############################################################################
 // #### Public Method(s) #######################################################
@@ -138,11 +83,6 @@ WDG_Status_t WDG_Initialize( WDG_t WDGx )
     do
     {
         WDG_Trace( "%s( WDGx=%d )", __FUNCTION__, WDGx );
-
-        if ( ( Status = WDG_Context_Initialize( ) ) != WDG_Status_Success )
-        {
-            break;
-        }
 
         WDG_t WDG_start = ( WDGx == WDG_All ? WDG_Null : WDGx );
         WDG_t WDG_end = ( WDGx == WDG_All ? WDG_Count : WDGx + 1 );
@@ -167,11 +107,6 @@ WDG_Status_t WDG_Cycle( WDG_t WDGx )
     do
     {
         WDG_Trace( "%s( WDGx=%d )", __FUNCTION__, WDGx );
-
-        if ( ( Status = WDG_Context_Cycle( ) ) != WDG_Status_Success )
-        {
-            break;
-        }
 
         WDG_t WDG_start = ( WDGx == WDG_All ? WDG_Null : WDGx );
         WDG_t WDG_end = ( WDGx == WDG_All ? WDG_Count : WDGx + 1 );
@@ -206,11 +141,6 @@ WDG_Status_t WDG_DeInitialize( WDG_t WDGx )
                 Status = WDG_Status;
             }
         }
-
-        if ( ( WDG_Status = WDG_Context_DeInitialize( ) ) != WDG_Status_Success )
-        {
-            Status = WDG_Status;
-        }
     }
     while ( 0 );
 
@@ -221,7 +151,7 @@ WDG_Status_t WDG_DeInitialize( WDG_t WDGx )
 // #### Public Variable(s) #####################################################
 // #############################################################################
 
-const char WDG_VERSION[] = "0.0.0.v20260627-1908";
+const char WDG_VERSION[] = "0.0.0.v20260818-0345";
 
 // #############################################################################
 // #### File Guard #############################################################
